@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>ViZul - Visualize the World</title>
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="canvasjs.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+    <script src="miner.js"></script>
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container" id="main_first">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Vizul</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">How it works</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Visualize Now!.</h1>
+			<select class="form-control" id='country'>
+				<option value="AFG">Afghanistan</option>
+				<option value="ALA">Åland Islands</option>
+				<option value="ALB">Albania</option>
+				<option value="DZA">Algeria</option>
+				<option value="ASM">American Samoa</option>
+				<option value="AND">Andorra</option>
+				<option value="AGO">Angola</option>
+				<option value="AIA">Anguilla</option>
+				<option value="ATA">Antarctica</option>
+				<option value="ATG">Antigua and Barbuda</option>
+				<option value="ARG">Argentina</option>
+				<option value="ARM">Armenia</option>
+				<option value="ABW">Aruba</option>
+				<option value="AUS">Australia</option>
+				<option value="AUT">Austria</option>
+				<option value="AZE">Azerbaijan</option>
+				<option value="BHS">Bahamas</option>
+				<option value="BHR">Bahrain</option>
+				<option value="BGD">Bangladesh</option>
+				<option value="BRB">Barbados</option>
+				<option value="BLR">Belarus</option>
+				<option value="BEL">Belgium</option>
+				<option value="BLZ">Belize</option>
+				<option value="BEN">Benin</option>
+				<option value="BMU">Bermuda</option>
+				<option value="BTN">Bhutan</option>
+				<option value="BOL">Bolivia, Plurinational State of</option>
+				<option value="BES">Bonaire, Sint Eustatius and Saba</option>
+				<option value="BIH">Bosnia and Herzegovina</option>
+				<option value="BWA">Botswana</option>
+				<option value="BVT">Bouvet Island</option>
+				<option value="BRA">Brazil</option>
+				<option value="IOT">British Indian Ocean Territory</option>
+				<option value="BRN">Brunei Darussalam</option>
+				<option value="BGR">Bulgaria</option>
+				<option value="BFA">Burkina Faso</option>
+				<option value="BDI">Burundi</option>
+				<option value="KHM">Cambodia</option>
+				<option value="CMR">Cameroon</option>
+				<option value="CAN">Canada</option>
+				<option value="CPV">Cape Verde</option>
+				<option value="CYM">Cayman Islands</option>
+				<option value="CAF">Central African Republic</option>
+				<option value="TCD">Chad</option>
+				<option value="CHL">Chile</option>
+				<option value="CHN">China</option>
+				<option value="CXR">Christmas Island</option>
+				<option value="CCK">Cocos (Keeling) Islands</option>
+				<option value="COL">Colombia</option>
+				<option value="COM">Comoros</option>
+				<option value="COG">Congo</option>
+				<option value="COD">Congo, the Democratic Republic of the</option>
+				<option value="COK">Cook Islands</option>
+				<option value="CRI">Costa Rica</option>
+				<option value="CIV">Côte d'Ivoire</option>
+				<option value="HRV">Croatia</option>
+				<option value="CUB">Cuba</option>
+				<option value="CUW">Curaçao</option>
+				<option value="CYP">Cyprus</option>
+				<option value="CZE">Czech Republic</option>
+				<option value="DNK">Denmark</option>
+				<option value="DJI">Djibouti</option>
+				<option value="DMA">Dominica</option>
+				<option value="DOM">Dominican Republic</option>
+				<option value="ECU">Ecuador</option>
+				<option value="EGY">Egypt</option>
+				<option value="SLV">El Salvador</option>
+				<option value="GNQ">Equatorial Guinea</option>
+				<option value="ERI">Eritrea</option>
+				<option value="EST">Estonia</option>
+				<option value="ETH">Ethiopia</option>
+				<option value="FLK">Falkland Islands (Malvinas)</option>
+				<option value="FRO">Faroe Islands</option>
+				<option value="FJI">Fiji</option>
+				<option value="FIN">Finland</option>
+				<option value="FRA">France</option>
+				<option value="GUF">French Guiana</option>
+				<option value="PYF">French Polynesia</option>
+				<option value="ATF">French Southern Territories</option>
+				<option value="GAB">Gabon</option>
+				<option value="GMB">Gambia</option>
+				<option value="GEO">Georgia</option>
+				<option value="DEU">Germany</option>
+				<option value="GHA">Ghana</option>
+				<option value="GIB">Gibraltar</option>
+				<option value="GRC">Greece</option>
+				<option value="GRL">Greenland</option>
+				<option value="GRD">Grenada</option>
+				<option value="GLP">Guadeloupe</option>
+				<option value="GUM">Guam</option>
+				<option value="GTM">Guatemala</option>
+				<option value="GGY">Guernsey</option>
+				<option value="GIN">Guinea</option>
+				<option value="GNB">Guinea-Bissau</option>
+				<option value="GUY">Guyana</option>
+				<option value="HTI">Haiti</option>
+				<option value="HMD">Heard Island and McDonald Islands</option>
+				<option value="VAT">Holy See (Vatican City State)</option>
+				<option value="HND">Honduras</option>
+				<option value="HKG">Hong Kong</option>
+				<option value="HUN">Hungary</option>
+				<option value="ISL">Iceland</option>
+				<option value="IND">India</option>
+				<option value="IDN">Indonesia</option>
+				<option value="IRN">Iran, Islamic Republic of</option>
+				<option value="IRQ">Iraq</option>
+				<option value="IRL">Ireland</option>
+				<option value="IMN">Isle of Man</option>
+				<option value="ISR">Israel</option>
+				<option value="ITA">Italy</option>
+				<option value="JAM">Jamaica</option>
+				<option value="JPN">Japan</option>
+				<option value="JEY">Jersey</option>
+				<option value="JOR">Jordan</option>
+				<option value="KAZ">Kazakhstan</option>
+				<option value="KEN">Kenya</option>
+				<option value="KIR">Kiribati</option>
+				<option value="PRK">Korea, Democratic People's Republic of</option>
+				<option value="KOR">Korea, Republic of</option>
+				<option value="KWT">Kuwait</option>
+				<option value="KGZ">Kyrgyzstan</option>
+				<option value="LAO">Lao People's Democratic Republic</option>
+				<option value="LVA">Latvia</option>
+				<option value="LBN">Lebanon</option>
+				<option value="LSO">Lesotho</option>
+				<option value="LBR">Liberia</option>
+				<option value="LBY">Libya</option>
+				<option value="LIE">Liechtenstein</option>
+				<option value="LTU">Lithuania</option>
+				<option value="LUX">Luxembourg</option>
+				<option value="MAC">Macao</option>
+				<option value="MKD">Macedonia, the former Yugoslav Republic of</option>
+				<option value="MDG">Madagascar</option>
+				<option value="MWI">Malawi</option>
+				<option value="MYS">Malaysia</option>
+				<option value="MDV">Maldives</option>
+				<option value="MLI">Mali</option>
+				<option value="MLT">Malta</option>
+				<option value="MHL">Marshall Islands</option>
+				<option value="MTQ">Martinique</option>
+				<option value="MRT">Mauritania</option>
+				<option value="MUS">Mauritius</option>
+				<option value="MYT">Mayotte</option>
+				<option value="MEX">Mexico</option>
+				<option value="FSM">Micronesia, Federated States of</option>
+				<option value="MDA">Moldova, Republic of</option>
+				<option value="MCO">Monaco</option>
+				<option value="MNG">Mongolia</option>
+				<option value="MNE">Montenegro</option>
+				<option value="MSR">Montserrat</option>
+				<option value="MAR">Morocco</option>
+				<option value="MOZ">Mozambique</option>
+				<option value="MMR">Myanmar</option>
+				<option value="NAM">Namibia</option>
+				<option value="NRU">Nauru</option>
+				<option value="NPL">Nepal</option>
+				<option value="NLD">Netherlands</option>
+				<option value="NCL">New Caledonia</option>
+				<option value="NZL">New Zealand</option>
+				<option value="NIC">Nicaragua</option>
+				<option value="NER">Niger</option>
+				<option value="NGA">Nigeria</option>
+				<option value="NIU">Niue</option>
+				<option value="NFK">Norfolk Island</option>
+				<option value="MNP">Northern Mariana Islands</option>
+				<option value="NOR">Norway</option>
+				<option value="OMN">Oman</option>
+				<option value="PAK">Pakistan</option>
+				<option value="PLW">Palau</option>
+				<option value="PSE">Palestinian Territory, Occupied</option>
+				<option value="PAN">Panama</option>
+				<option value="PNG">Papua New Guinea</option>
+				<option value="PRY">Paraguay</option>
+				<option value="PER">Peru</option>
+				<option value="PHL">Philippines</option>
+				<option value="PCN">Pitcairn</option>
+				<option value="POL">Poland</option>
+				<option value="PRT">Portugal</option>
+				<option value="PRI">Puerto Rico</option>
+				<option value="QAT">Qatar</option>
+				<option value="REU">Réunion</option>
+				<option value="ROU">Romania</option>
+				<option value="RUS">Russian Federation</option>
+				<option value="RWA">Rwanda</option>
+				<option value="BLM">Saint Barthélemy</option>
+				<option value="SHN">Saint Helena, Ascension and Tristan da Cunha</option>
+				<option value="KNA">Saint Kitts and Nevis</option>
+				<option value="LCA">Saint Lucia</option>
+				<option value="MAF">Saint Martin (French part)</option>
+				<option value="SPM">Saint Pierre and Miquelon</option>
+				<option value="VCT">Saint Vincent and the Grenadines</option>
+				<option value="WSM">Samoa</option>
+				<option value="SMR">San Marino</option>
+				<option value="STP">Sao Tome and Principe</option>
+				<option value="SAU">Saudi Arabia</option>
+				<option value="SEN">Senegal</option>
+				<option value="SRB">Serbia</option>
+				<option value="SYC">Seychelles</option>
+				<option value="SLE">Sierra Leone</option>
+				<option value="SGP">Singapore</option>
+				<option value="SXM">Sint Maarten (Dutch part)</option>
+				<option value="SVK">Slovakia</option>
+				<option value="SVN">Slovenia</option>
+				<option value="SLB">Solomon Islands</option>
+				<option value="SOM">Somalia</option>
+				<option value="ZAF">South Africa</option>
+				<option value="SGS">South Georgia and the South Sandwich Islands</option>
+				<option value="SSD">South Sudan</option>
+				<option value="ESP">Spain</option>
+				<option value="LKA">Sri Lanka</option>
+				<option value="SDN">Sudan</option>
+				<option value="SUR">Suriname</option>
+				<option value="SJM">Svalbard and Jan Mayen</option>
+				<option value="SWZ">Swaziland</option>
+				<option value="SWE">Sweden</option>
+				<option value="CHE">Switzerland</option>
+				<option value="SYR">Syrian Arab Republic</option>
+				<option value="TWN">Taiwan, Province of China</option>
+				<option value="TJK">Tajikistan</option>
+				<option value="TZA">Tanzania, United Republic of</option>
+				<option value="THA">Thailand</option>
+				<option value="TLS">Timor-Leste</option>
+				<option value="TGO">Togo</option>
+				<option value="TKL">Tokelau</option>
+				<option value="TON">Tonga</option>
+				<option value="TTO">Trinidad and Tobago</option>
+				<option value="TUN">Tunisia</option>
+				<option value="TUR">Turkey</option>
+				<option value="TKM">Turkmenistan</option>
+				<option value="TCA">Turks and Caicos Islands</option>
+				<option value="TUV">Tuvalu</option>
+				<option value="UGA">Uganda</option>
+				<option value="UKR">Ukraine</option>
+				<option value="ARE">United Arab Emirates</option>
+				<option value="GBR">United Kingdom</option>
+				<option value="USA">United States</option>
+				<option value="UMI">United States Minor Outlying Islands</option>
+				<option value="URY">Uruguay</option>
+				<option value="UZB">Uzbekistan</option>
+				<option value="VUT">Vanuatu</option>
+				<option value="VEN">Venezuela, Bolivarian Republic of</option>
+				<option value="VNM">Viet Nam</option>
+				<option value="VGB">Virgin Islands, British</option>
+				<option value="VIR">Virgin Islands, U.S.</option>
+				<option value="WLF">Wallis and Futuna</option>
+				<option value="ESH">Western Sahara</option>
+				<option value="YEM">Yemen</option>
+				<option value="ZMB">Zambia</option>
+				<option value="ZWE">Zimbabwe</option>
+			</select>
+				<select name="indicators" class="form-control" id="edit-indicators" ><option value="" selected="selected">-</option><option value="EG.ELC.ACCS.ZS">Access to electricity (% of population)</option><option value="SP.ADO.TFRT">Adolescent fertility rate (births per 1,000 women ages 15-19)</option><option value="SE.ADT.LITR.ZS">Adult literacy rate, population 15+ years, both sexes (%)</option><option value="AG.LND.IRIG.AG.ZS">Agricultural irrigated land (% of total agricultural land)</option><option value="AG.LND.AGRI.ZS">Agricultural land (% of land area)</option><option value="AG.LND.TRAC.ZS">Agricultural machinery, tractors per 100 sq. km of arable land</option><option value="EN.ATM.METH.AG.ZS">Agricultural methane emissions (% of total)</option><option value="EN.ATM.NOXE.AG.ZS">Agricultural nitrous oxide emissions (% of total)</option><option value="EA.PRD.AGRI.KD">Agriculture value added per worker (constant 2005 US$)</option><option value="NV.AGR.TOTL.ZS">Agriculture, value added (% of GDP)</option><option value="IS.AIR.DPRT">Air transport, registered carrier departures worldwide</option><option value="EG.USE.COMM.CL.ZS">Alternative and nuclear energy (% of total energy use)</option><option value="ER.H2O.FWAG.ZS">Annual freshwater withdrawals, agriculture (% of total freshwater withdrawal)</option><option value="ER.H2O.FWDM.ZS">Annual freshwater withdrawals, domestic (% of total freshwater withdrawal)</option><option value="ER.H2O.FWIN.ZS">Annual freshwater withdrawals, industry (% of total freshwater withdrawal)</option><option value="ER.H2O.FWTL.K3">Annual freshwater withdrawals, total (billion cubic meters)</option><option value="SI.SPR.PC40.ZG">Annualized average growth rate in per capita real survey mean consumption or income, bottom 40% of population (%)</option><option value="SI.SPR.PCAP.ZG">Annualized average growth rate in per capita real survey mean consumption or income, total population (%)</option><option value="AG.LND.ARBL.ZS">Arable land (% of land area)</option><option value="AG.LND.ARBL.HA.PC">Arable land (hectares per person)</option><option value="FB.BNK.CAPA.ZS">Bank capital to assets ratio (%)</option><option value="FB.AST.NPER.ZS">Bank nonperforming loans to total gross loans (%)</option><option value="SP.DYN.CBRT.IN">Birth rate, crude (per 1,000 people)</option><option value="SH.STA.BRTC.ZS">Births attended by skilled health staff (% of total)</option><option value="EN.ATM.CO2E.KT">CO2 emissions (kt)</option><option value="EN.ATM.CO2E.PC">CO2 emissions (metric tons per capita)</option><option value="IQ.CPA.ECON.XQ">CPIA economic management cluster average (1=low to 6=high)</option><option value="IQ.CPA.SOCI.XQ">CPIA policies for social inclusion/equity cluster average (1=low to 6=high)</option><option value="IQ.CPA.PUBS.XQ">CPIA public sector management and institutions cluster average (1=low to 6=high)</option><option value="IQ.CPA.STRC.XQ">CPIA structural policies cluster average (1=low to 6=high)</option><option value="GC.BAL.CASH.GD.ZS">Cash surplus/deficit (% of GDP)</option><option value="SH.DTH.COMM.ZS">Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions (% of total)</option><option value="SH.DTH.INJR.ZS">Cause of death, by injury (% of total)</option><option value="SH.DTH.NCOM.ZS">Cause of death, by non-communicable diseases (% of total)</option><option value="GC.DOD.TOTL.GD.ZS">Central government debt, total (% of GDP)</option><option value="AG.YLD.CREL.KG">Cereal yield (kg per hectare)</option><option value="BM.GSR.ROYL.CD">Charges for the use of intellectual property, payments (BoP, current US$)</option><option value="BX.GSR.ROYL.CD">Charges for the use of intellectual property, receipts (BoP, current US$)</option><option value="SL.TLF.0714.FE.ZS">Children in employment, female (% of female children ages 7-14)</option><option value="SL.TLF.0714.MA.ZS">Children in employment, male (% of male children ages 7-14)</option><option value="SL.TLF.0714.SW.FE.ZS">Children in employment, study and work, female (% of female children in employment, ages 7-14)</option><option value="SL.TLF.0714.SW.MA.ZS">Children in employment, study and work, male (% of male children in employment, ages 7-14)</option><option value="SL.TLF.0714.ZS">Children in employment, total (% of children ages 7-14)</option><option value="SL.TLF.0714.WK.FE.ZS">Children in employment, work only, female (% of female children in employment, ages 7-14)</option><option value="SL.TLF.0714.WK.MA.ZS">Children in employment, work only, male (% of male children in employment, ages 7-14)</option><option value="FM.AST.CGOV.ZG.M3">Claims on central government (annual growth as % of broad money)</option><option value="FM.AST.DOMO.ZG.M3">Claims on other sectors of the domestic economy (annual growth as % of broad money)</option><option value="EG.USE.CRNW.ZS">Combustible renewables and waste (% of total energy)</option><option value="SP.REG.DTHS.ZS">Completeness of death registration with cause-of-death information (%)
+				</option><option value="IS.SHP.GOOD.TU">Container port traffic (TEU: 20 foot equivalent units)</option><option value="SP.DYN.CONU.ZS">Contraceptive prevalence, any methods (% of women ages 15-49)</option><option value="AG.PRD.CROP.XD">Crop production index (2004-2006 = 100)</option><option value="BN.CAB.XOKA.CD">Current account balance (BoP, current US$)</option><option value="SP.DYN.CDRT.IN">Death rate, crude (per 1,000 people)</option><option value="FR.INR.DPST">Deposit interest rate (%)</option><option value="IC.CRD.INFO.XQ">Depth of credit information index (0=low to 8=high)</option><option value="SH.STA.DIAB.ZS">Diabetes prevalence (% of population ages 20 to 79)</option><option value="IC.EXP.DOCS">Documents to export (number)</option><option value="IC.IMP.DOCS">Documents to import (number)</option><option value="FS.AST.DOMS.GD.ZS">Domestic credit provided by financial sector (% of GDP)</option><option value="FS.AST.PRVT.GD.ZS">Domestic credit to private sector (% of GDP)</option><option value="IC.BUS.EASE.XQ">Ease of doing business index (1=most business-friendly regulations)</option><option value="SE.SEC.PROG.FE.ZS">Effective transition rate from primary to lower secondary general education, female (%)
+				</option><option value="SE.SEC.PROG.MA.ZS">Effective transition rate from primary to lower secondary general education, male (%)
+				</option><option value="EG.USE.ELEC.KH.PC">Electric power consumption (kWh per capita)</option><option value="SL.AGR.EMPL.ZS">Employment in agriculture (% of total employment)</option><option value="SL.AGR.EMPL.FE.ZS">Employment in agriculture, female (% of female employment)</option><option value="SL.AGR.EMPL.MA.ZS">Employment in agriculture, male (% of male employment)</option><option value="SL.IND.EMPL.FE.ZS">Employment in industry, female (% of female employment)</option><option value="SL.IND.EMPL.MA.ZS">Employment in industry, male (% of male employment)</option><option value="SL.SRV.EMPL.FE.ZS">Employment in services, female (% of female employment)</option><option value="SL.SRV.EMPL.MA.ZS">Employment in services, male (% of male employment)</option><option value="SL.EMP.TOTL.SP.ZS">Employment to population ratio, 15+, total (%) (modeled ILO estimate)</option><option value="EG.IMP.CONS.ZS">Energy imports, net (% of energy use)</option><option value="EG.EGY.PRIM.PP.KD">Energy intensity level of primary energy (MJ/$2011 PPP GDP)
+				</option><option value="EG.USE.PCAP.KG.OE">Energy use (kg of oil equivalent per capita)</option><option value="SE.XPD.TOTL.GB.ZS">Expenditure on education as % of total government expenditure (%)</option><option value="GC.XPN.TOTL.GD.ZS">Expense (% of GDP)</option><option value="TX.VAL.MRCH.XD.WD">Export value index (2000 = 100)</option><option value="TX.QTY.MRCH.XD.WD">Export volume index (2000 = 100)</option><option value="NE.EXP.GNFS.ZS">Exports of goods and services (% of GDP)</option><option value="DT.DOD.DPNG.CD">External debt stocks, private nonguaranteed (PNG) (DOD, current US$)</option><option value="DT.DOD.DPPG.CD">External debt stocks, public and publicly guaranteed (PPG) (DOD, current US$)</option><option value="DT.DOD.DSTC.CD">External debt stocks, short-term (DOD, current US$)</option><option value="DT.DOD.DECT.CD">External debt stocks, total (DOD, current US$)</option><option value="SP.DYN.TFRT.IN">Fertility rate, total (births per woman)</option><option value="AG.CON.FERT.ZS">Fertilizer consumption (kilograms per hectare of arable land)</option><option value="IC.FRM.BNKS.ZS">Firms using banks to finance investment (% of firms)</option><option value="IC.FRM.FEMM.ZS">Firms with female top manager (% of firms)</option><option value="EN.FSH.THRD.NO">Fish species, threatened</option><option value="IT.NET.BBND.P2">Fixed broadband subscriptions (per 100 people)</option><option value="AG.PRD.FOOD.XD">Food production index (2004-2006 = 100)</option><option value="BX.KLT.DINV.CD.WD">Foreign direct investment, net inflows (BoP, current US$)</option><option value="AG.LND.FRST.ZS">Forest area (% of land area)</option><option value="AG.LND.FRST.K2">Forest area (sq. km)</option><option value="EG.USE.COMM.FO.ZS">Fossil fuel energy consumption (% of total)</option><option value="NY.GDP.MKTP.CD">GDP at market prices (current US$)</option><option value="NY.GDP.MKTP.KD.ZG">GDP growth (annual %)</option><option value="NY.GDP.PCAP.CD">GDP per capita (current US$)</option><option value="SL.GDP.PCAP.EM.KD">GDP per person employed (constant 2011 PPP $)</option><option value="EG.GDP.PUSE.KO.PP.KD">GDP per unit of energy use (constant 2011 PPP $ per kg of oil equivalent)</option><option value="ER.BDV.TOTL.XQ">GEF benefits index for biodiversity (0 = no biodiversity potential to 100 = maximum)</option><option value="NY.GNP.PCAP.CD">GNI per capita, Atlas method (current US$)</option><option value="NY.GNP.PCAP.PP.CD">GNI per capita, PPP (current international $)</option><option value="NY.GNP.ATLS.CD">GNI, Atlas method (current US$)</option><option value="NY.GNP.MKTP.PP.CD">GNI, PPP (current international $)</option><option value="SE.XPD.TOTL.GD.ZS">Government expenditure on education as % of GDP (%)</option><option value="SE.XPD.PRIM.PC.ZS">Government expenditure per primary student as % of GDP per capita (%)</option><option value="SE.XPD.SECO.PC.ZS">Government expenditure per secondary student as % of GDP per capita (%)</option><option value="SE.XPD.TERT.PC.ZS">Government expenditure per tertiary student as % of GDP per capita (%)</option><option value="NE.GDI.TOTL.ZS">Gross capital formation (% of GDP)</option><option value="SE.PRM.ENRR">Gross enrollment ratio, primary, both sexes (%)</option><option value="SE.PRE.ENRR">Gross enrolment ratio, pre-primary, both sexes (%)</option><option value="SE.ENR.PRSC.FM.ZS">Gross enrolment ratio, primary and secondary, gender parity index (GPI)</option><option value="SE.ENR.PRIM.FM.ZS">Gross enrolment ratio, primary, gender parity index (GPI)</option><option value="SE.SEC.ENRR">Gross enrolment ratio, secondary, both sexes (%)</option><option value="SE.ENR.SECO.FM.ZS">Gross enrolment ratio, secondary, gender parity index (GPI)</option><option value="SE.TER.ENRR">Gross enrolment ratio, tertiary, both sexes (%)</option><option value="SE.ENR.TERT.FM.ZS">Gross enrolment ratio, tertiary, gender parity index (GPI)</option><option value="SE.PRM.GINT.FE.ZS">Gross intake ratio to Grade 1 of primary education, female (%)</option><option value="SE.PRM.GINT.MA.ZS">Gross intake ratio to Grade 1 of primary education, male (%)</option><option value="NY.GNS.ICTR.ZS">Gross savings (% of GDP)</option><option value="SH.XPD.PCAP">Health expenditure per capita (current US$)</option><option value="SH.XPD.PUBL">Health expenditure, public (% of total health expenditure)</option><option value="SH.XPD.TOTL.ZS">Health expenditure, total (% of GDP)</option><option value="TX.VAL.TECH.MF.ZS">High-technology exports (% of manufactured exports)</option><option value="TX.VAL.TECH.CD">High-technology exports (current US$)</option><option value="DT.DOD.MWBG.CD">IBRD loans and IDA credits (DOD, current US$)</option><option value="TX.VAL.ICTG.ZS.UN">ICT goods exports (% of total goods exports)</option><option value="TM.VAL.ICTG.ZS.UN">ICT goods imports (% total goods imports)</option><option value="BX.GSR.CCIS.ZS">ICT service exports (% of service exports, BoP)</option><option value="IQ.CPA.IRAI.XQ">IDA resource allocation index (1=low to 6=high)</option><option value="SH.IMM.IDPT">Immunization, DPT (% of children ages 12-23 months)</option><option value="SH.IMM.MEAS">Immunization, measles (% of children ages 12-23 months)</option><option value="TM.VAL.MRCH.XD.WD">Import value index (2000 = 100)</option><option value="TM.QTY.MRCH.XD.WD">Import volume index (2000 = 100)</option><option value="NE.IMP.GNFS.ZS">Imports of goods and services (% of GDP)</option><option value="SH.STA.ACSN">Improved sanitation facilities (% of population with access)</option><option value="SH.STA.ACSN.UR">Improved sanitation facilities, urban (% of urban population with access)</option><option value="SH.H2O.SAFE.RU.ZS">Improved water source, rural (% of rural population with access)</option><option value="SH.H2O.SAFE.UR.ZS">Improved water source, urban (% of urban population with access)</option><option value="SH.TBS.INCD">Incidence of tuberculosis (per 100,000 people)</option><option value="SI.DST.04TH.20">Income share held by fourth 20%</option><option value="SI.DST.10TH.10">Income share held by highest 10%</option><option value="SI.DST.05TH.20">Income share held by highest 20%</option><option value="SI.DST.FRST.10">Income share held by lowest 10%</option><option value="SI.DST.FRST.20">Income share held by lowest 20%</option><option value="SI.DST.02ND.20">Income share held by second 20%</option><option value="SI.DST.03RD.20">Income share held by third 20%</option><option value="NV.IND.TOTL.ZS">Industry, value added (% of GDP)</option><option value="NY.GDP.DEFL.KD.ZG">Inflation, GDP deflator (annual %)</option><option value="FP.CPI.TOTL.ZG">Inflation, consumer prices (annual %)</option><option value="IC.FRM.CORR.ZS">Informal payments to public officials (% of firms)</option><option value="FR.INR.LNDP">Interest rate spread (lending rate minus deposit rate, %)</option><option value="SM.POP.TOTL">International migrant stock, total</option><option value="IC.FRM.ISOC.ZS">Internationally-recognized quality certification (% of firms)</option><option value="IT.NET.USER.P2">Internet users (per 100 people)</option><option value="IE.PPI.ENGY.CD">Investment in energy with private participation (current US$)</option><option value="IE.PPI.TELE.CD">Investment in telecoms with private participation (current US$)</option><option value="IE.PPI.TRAN.CD">Investment in transport with private participation (current US$)</option><option value="IE.PPI.WATR.CD">Investment in water and sanitation with private participation (current US$)</option><option value="SL.TLF.ACTI.1524.FE.ZS">Labor force participation rate for ages 15-24, female (%) (modeled ILO estimate)</option><option value="SL.TLF.ACTI.1524.MA.ZS">Labor force participation rate for ages 15-24, male (%) (modeled ILO estimate)</option><option value="SL.TLF.ACTI.1524.ZS">Labor force participation rate for ages 15-24, total (%) (modeled ILO estimate)</option><option value="SL.TLF.CACT.FE.ZS">Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)</option><option value="SL.TLF.ACTI.FE.ZS">Labor force participation rate, female (% of female population ages 15-64) (modeled ILO estimate)</option><option value="SL.TLF.CACT.MA.ZS">Labor force participation rate, male (% of male population ages 15+) (modeled ILO estimate)</option><option value="SL.TLF.ACTI.MA.ZS">Labor force participation rate, male (% of male population ages 15-64) (modeled ILO estimate)</option><option value="SL.TLF.CACT.ZS">Labor force participation rate, total (% of total population ages 15+) (modeled ILO estimate)</option><option value="SL.TLF.ACTI.ZS">Labor force participation rate, total (% of total population ages 15-64) (modeled ILO estimate)</option><option value="SL.TLF.TOTL.IN">Labor force, total</option><option value="AG.LND.TOTL.K2">Land area (sq. km)</option><option value="AG.LND.EL5M.ZS">Land area where elevation is below 5 meters (% of total land area)</option><option value="AG.LND.CREL.HA">Land under cereal production (hectares)</option><option value="LP.EXP.DURS.MD">Lead time to export, median case (days)</option><option value="LP.IMP.DURS.MD">Lead time to import, median case (days)</option><option value="FR.INR.LEND">Lending interest rate (%)</option><option value="SP.DYN.LE00.FE.IN">Life expectancy at birth, female (years)</option><option value="SP.DYN.LE00.MA.IN">Life expectancy at birth, male (years)</option><option value="SP.DYN.LE00.IN">Life expectancy at birth, total (years)</option><option value="CM.MKT.LDOM.NO">Listed domestic companies, total</option><option value="AG.PRD.LVSK.XD">Livestock production index (2004-2006 = 100)</option><option value="LP.LPI.OVRL.XQ">Logistics performance index: Overall (1=low to 5=high)</option><option value="SL.UEM.LTRM.ZS">Long-term unemployment (% of total unemployment)</option><option value="SL.UEM.LTRM.FE.ZS">Long-term unemployment, female (% of female unemployment)</option><option value="SL.UEM.LTRM.MA.ZS">Long-term unemployment, male (% of male unemployment)</option><option value="EN.MAM.THRD.NO">Mammal species, threatened</option><option value="ER.MRN.PTMR.ZS">Marine protected areas (% of territorial waters)</option><option value="CM.MKT.LCAP.GD.ZS">Market capitalization of listed domestic companies (% of GDP)</option><option value="CM.MKT.LCAP.CD">Market capitalization of listed domestic companies (current US$)</option><option value="SH.STA.MMRT">Maternal mortality ratio (modeled estimate, per 100,000 live births)</option><option value="TG.VAL.TOTL.GD.ZS">Merchandise trade (% of GDP)</option><option value="EN.ATM.METH.KT.CE">Methane emissions (kt of CO2 equivalent)</option><option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option><option value="MS.MIL.XPND.ZS">Military expenditure (% of central government expenditure)</option><option value="IT.CEL.SETS.P2">Mobile cellular subscriptions (per 100 people)</option><option value="FM.LBL.MQMY.ZG">Money and quasi money growth (annual %)</option><option value="SP.DYN.IMRT.IN">Mortality rate, infant (per 1,000 live births)</option><option value="SH.DYN.MORT">Mortality rate, under-5 (per 1,000)</option><option value="DT.ODA.ODAT.GN.ZS">Net ODA received (% of GNI)</option><option value="DT.ODA.ODAT.PC.ZS">Net ODA received per capita (current US$)</option><option value="TT.PRI.MRCH.XD.WD">Net barter terms of trade index (2000 = 100)</option><option value="DC.DAC.KORL.CD">Net bilateral aid flows from DAC donors, Korea, Rep. (current US$)</option><option value="SE.PRM.NENR">Net enrolment rate, primary, both sexes (%)</option><option value="SE.SEC.NENR">Net enrolment rate, secondary, both sexes (%)</option><option value="DT.NFL.DLXF.CD">Net flows on external debt, long-term (NFL, current US$)</option><option value="DT.NFL.DECT.CD">Net flows on external debt, total (NFL, current US$)</option><option value="SM.POP.NETM">Net migration</option><option value="DT.ODA.ALLD.CD">Net official development assistance and official aid received (current US$)</option><option value="DT.ODA.ODAT.CD">Net official development assistance received (current US$)</option><option value="IC.BUS.NREG">New businesses registered (number)</option><option value="EN.ATM.NOXE.KT.CE">Nitrous oxide emissions (thousand metric tons of CO2 equivalent)</option><option value="SH.SGR.PROC.P5">Number of surgical procedures (per 100,000 population)</option><option value="IC.TAX.METG">Number of visits or required meetings with tax officials</option><option value="EN.ATM.GHGO.KT.CE">Other greenhouse gas emissions, HFC, PFC and SF6 (thousand metric tons of CO2 equivalent)</option><option value="SH.XPD.OOPC.ZS">Out-of-pocket health expenditure (% of private expenditure on health)</option><option value="SE.PRM.UNER.FE">Out-of-school children of primary school age, female (number)</option><option value="SE.PRM.UNER.MA">Out-of-school children of primary school age, male (number)</option><option value="EN.ATM.PM25.MC.M3">PM2.5 air pollution, mean annual exposure (micrograms per cubic meter)</option><option value="EN.ATM.PM25.MC.ZS">PM2.5 air pollution, population exposed to levels exceeding WHO guideline value (% of total)</option><option value="IP.PAT.NRES">Patent applications, nonresidents</option><option value="IP.PAT.RESD">Patent applications, residents</option><option value="SE.PRM.REPT.FE.ZS">Percentage of repeaters in primary education, all grades, female (%)</option><option value="SE.PRM.REPT.MA.ZS">Percentage of repeaters in primary education, all grades, male (%)</option><option value="SE.PRM.TCAQ.ZS">Percentage of teachers in primary education who are trained, both sexes (%)</option><option value="AG.LND.CROP.ZS">Permanent cropland (% of land area)</option><option value="BX.TRF.PWKR.CD.DT">Personal remittances, received (current US$)</option><option value="EN.HPT.THRD.NO">Plant species (higher), threatened</option><option value="SP.POP.65UP.TO.ZS">Population ages 65 and above (% of total)</option><option value="SP.POP.GROW">Population growth (annual %)</option><option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option><option value="EN.URB.MCTY.TL.ZS">Population in urban agglomerations of more than 1 million (% of total population)</option><option value="EN.POP.EL5M.ZS">Population living in areas where elevation is below 5 meters (% of total population)</option><option value="SP.POP.0014.TO.ZS">Population, ages 0-14 (% of total)</option><option value="SP.POP.1564.TO.ZS">Population, ages 15-64 (% of total)</option><option value="SP.POP.TOTL.FE.ZS">Population, female (% of total)</option><option value="SP.POP.TOTL">Population, total</option><option value="BX.PEF.TOTL.CD.WD">Portfolio equity, net inflows (BoP, current US$)</option><option value="SI.POV.GAPS">Poverty gap at $1.90 a day (2011 PPP) (%)</option><option value="SI.POV.GAP2">Poverty gap at $3.10 a day (2011 PPP) (%)</option><option value="SI.POV.NAGP">Poverty gap at national poverty lines (%)</option><option value="SI.POV.DDAY">Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population)</option><option value="SI.POV.2DAY">Poverty headcount ratio at $3.10 a day (2011 PPP) (% of population)</option><option value="SI.POV.NAHC">Poverty headcount ratio at national poverty lines (% of population)</option><option value="SH.STA.ANVC.ZS">Pregnant women receiving prenatal care (%)</option><option value="SH.HIV.1524.FE.ZS">Prevalence of HIV, female (% ages 15-24)</option><option value="SH.HIV.1524.MA.ZS">Prevalence of HIV, male (% ages 15-24)</option><option value="SH.DYN.AIDS.ZS">Prevalence of HIV, total (% of population ages 15-49)</option><option value="SH.ANM.CHLD.ZS">Prevalence of anemia among children (% of children under 5)</option><option value="SH.STA.STNT.ZS">Prevalence of stunting, height for age (% of children under 5)</option><option value="SH.STA.MALN.ZS">Prevalence of underweight, weight for age (% of children under 5)</option><option value="SE.PRM.CMPT.ZS">Primary completion rate, both sexes (%)</option><option value="SE.PRM.CMPT.FE.ZS">Primary completion rate, female (%)</option><option value="SE.PRM.CMPT.MA.ZS">Primary completion rate, male (%)</option><option value="IC.CRD.PRVT.ZS">Private credit bureau coverage (% of adults)</option><option value="SG.GEN.PARL.ZS">Proportion of seats held by women in national parliaments (%)</option><option value="IC.CRD.PUBL.ZS">Public credit registry coverage (% of adults)</option><option value="EP.PMP.DESL.CD">Pump price for diesel fuel (US$ per liter)</option><option value="EP.PMP.SGAS.CD">Pump price for gasoline (US$ per liter)</option><option value="SE.PRM.ENRL.TC.ZS">Pupil-teacher ratio in primary education (headcount basis)</option><option value="IS.RRS.TOTL.KM">Rail lines (total route-km)</option><option value="FR.INR.RINR">Real interest rate (%)</option><option value="SM.POP.REFG">Refugee population by country or territory of asylum</option><option value="SM.POP.REFG.OR">Refugee population by country or territory of origin</option><option value="EG.ELC.RNEW.ZS">Renewable electricity output (% of total electricity output)
+				</option><option value="EG.FEC.RNEW.ZS">Renewable energy consumption (% of total final energy consumption)
+				</option><option value="ER.H2O.INTR.PC">Renewable internal freshwater resources per capita (cubic meters)</option><option value="ER.H2O.INTR.K3">Renewable internal freshwater resources, total (billion cubic meters)</option><option value="GB.XPD.RSDV.GD.ZS">Research and development expenditure (% of GDP)</option><option value="SP.POP.SCIE.RD.P6">Researchers in R&amp;D (per million people)</option><option value="GC.REV.XGRT.GD.ZS">Revenue, excluding grants (% of GDP)</option><option value="SH.SGR.CRSK.ZS">Risk of catastrophic expenditure for surgical care (% of people at risk)</option><option value="SH.SGR.IRSK.ZS">Risk of impoverishing expenditure for surgical care (% of people at risk)</option><option value="FR.INR.RISK">Risk premium on lending (lending rate minus treasury bill rate, %)</option><option value="SP.RUR.TOTL">Rural population</option><option value="SP.RUR.TOTL.ZS">Rural population (% of total population)</option><option value="SI.POV.RUGP">Rural poverty gap at national poverty lines (%)</option><option value="SI.POV.RUHC">Rural poverty headcount ratio at national poverty lines (% of rural population)</option><option value="CM.MKT.INDX.ZG">S&amp;P Global Equity Indices (annual % change)</option><option value="IP.JRN.ARTC.SC">Scientific and technical journal articles</option><option value="BM.TRF.PRVT.CD">Secondary income, other sectors, payments (BoP, current US$)</option><option value="IT.NET.SECR.P6">Secure Internet servers (per 1 million people)</option><option value="NV.SRV.TETC.ZS">Services, etc., value added (% of GDP)</option><option value="SL.EMP.INSV.FE.ZS">Share of women in wage employment in the nonagricultural sector (% of total nonagricultural employment)</option><option value="SH.MED.SAOP.P5">Specialist surgical workforce (per 100,000 population)</option><option value="IC.REG.PROC">Start-up procedures to register a business (number)</option><option value="CM.MKT.TRAD.GD.ZS">Stocks traded, total value (% of GDP)</option><option value="CM.MKT.TRNR">Stocks traded, turnover ratio of domestic shares (%)</option><option value="IC.LGL.CRED.XQ">Strength of legal rights index (0=weak to 12=strong)</option><option value="SI.SPR.PC40">Survey mean consumption or income per capita, bottom 40% of population (2011 PPP $ per day)</option><option value="SI.SPR.PCAP">Survey mean consumption or income per capita, total population (2011 PPP $ per day)</option><option value="SE.PRM.PRSL.FE.ZS">Survival rate to the last grade of primary education, female (%)</option><option value="SE.PRM.PRSL.MA.ZS">Survival rate to the last grade of primary education, male (%)</option><option value="IC.TAX.PAYM">Tax payments (number)</option><option value="GC.TAX.TOTL.GD.ZS">Tax revenue (% of GDP)</option><option value="SP.POP.TECH.RD.P6">Technicians in R&amp;D (per million people)</option><option value="SP.MTR.1519.ZS">Teenage mothers (% of women ages 15-19 who have had children or are currently pregnant)</option><option value="IC.REG.DURS">Time required to start a business (days)</option><option value="IC.TAX.DURS">Time to prepare and pay taxes (hours)</option><option value="IC.ISV.DURS">Time to resolve insolvency (years)</option><option value="DT.TDS.DECT.EX.ZS">Total debt service (% of exports of goods, services and primary income)</option><option value="FI.RES.TOTL.CD">Total reserves (includes gold, current US$)</option><option value="IC.TAX.TOTL.CP.ZS">Total tax rate (% of commercial profits)</option><option value="BG.GSR.NFSV.GD.ZS">Trade in services (% of GDP)</option><option value="IP.TMK.NRES">Trademark applications, direct nonresident</option><option value="IP.TMK.RESD">Trademark applications, direct resident</option><option value="SL.UEM.TOTL.FE.ZS">Unemployment, female (% of female labor force)</option><option value="SL.UEM.TOTL.MA.ZS">Unemployment, male (% of male labor force)</option><option value="SL.UEM.TOTL.ZS">Unemployment, total (% of total labor force)</option><option value="SL.UEM.1524.FE.ZS">Unemployment, youth female (% of female labor force ages 15-24) (modeled ILO estimate)</option><option value="SL.UEM.1524.MA.ZS">Unemployment, youth male (% of male labor force ages 15-24) (modeled ILO estimate)</option><option value="SP.UWT.TFRT">Unmet need for contraception (% of married women ages 15-49)</option><option value="SP.URB.TOTL">Urban population</option><option value="SP.URB.TOTL.IN.ZS">Urban population (% of total)</option><option value="SI.POV.URGP">Urban poverty gap at national poverty lines (%)</option><option value="SI.POV.URHC">Urban poverty headcount ratio at national poverty lines (% of urban population)</option><option value="DT.DOD.DIMF.CD">Use of IMF credit (DOD, current US$)</option><option value="IC.FRM.OUTG.ZS">Value lost due to electrical outages (% of sales)</option><option value="SL.EMP.VULN.FE.ZS">Vulnerable employment, female (% of female employment)</option><option value="SL.EMP.VULN.MA.ZS">Vulnerable employment, male (% of male employment)</option><option value="SL.EMP.VULN.ZS">Vulnerable employment, total (% of total employment)</option><option value="SE.ADT.1524.LT.ZS">Youth literacy rate, population 15-24 years, both sexes (%)</option><option value="SE.ADT.1524.LT.FE.ZS">Youth literacy rate, population 15-24 years, female (%)</option><option value="SE.ADT.1524.LT.MA.ZS">Youth literacy rate, population 15-24 years, male (%)</option></select>
+            <p class="lead">
+              <a href="#" class="btn btn-lg btn-default" onClick="ComputeData()">Search</a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Visualizing Project for World Bank Data, Created by <a href="https://github.com/safery">@Safery Under 24 hours</a>.</p>
+            </div>
+          </div>
+
+        </div>
+		<div id="main_graph">
+			<div id="left_content">
+			</div>
+			<button type="button" class="btn btn-primary btn-md" id="backButton" onClick="GoBack()">Go Back</button>
+			<div id="chartContainer" style="height: 300px; width: 800px;">
+			</div>
+		</div>
+      </div>
+
+    </div>
+	<!-- Background changer -->
+	<script>
+	
+	
+	
+	// Pick a random number and set a background image.
+	var Random_BG = Math.floor((Math.random() * 6) + 1);
+	// Change the CSS of the BG image.
+	document.body.style.backgroundImage = "url('bg/" + Random_BG + ".png')";
+	</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
