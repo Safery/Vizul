@@ -197,3 +197,7 @@ body {
 #flaging{
 	float: right;
 }
+
+#Show_Error{
+	display: none;
+}
