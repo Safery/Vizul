@@ -34,8 +34,10 @@
     <![endif]-->
   </head>
 
-  <body>
-
+  <body style="overflow: hidden">
+	<div id="dialog" title="Basic dialog">
+	  <p><b><font color="red">Warning! </font>Modern browsers don't suport XMLHttpRequest to 3rd party domain. Please visit "How it works".</b></p>
+	</div>
     <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
@@ -48,7 +50,7 @@
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">How it works</a></li>
+                  <li><a href="#" onClick="document.getElementById('Show_Error').style.display='block';">How it works</a></li>
                   <li><a href="#">Contact</a></li>
                 </ul>
               </nav>
@@ -334,14 +336,27 @@
 			<div id="chartContainer" style="height: 300px; width: 800px;">
 			</div>
 		</div>
+			<div class="modal-body" id="Show_Error">
+				<p>The website makes a "XMLHttpRequest" to gather data from the World Bank servers. This means,
+				the server is not implying on normal API GET request, such reason the algorithm tries to gather data
+				from a 3rd party domain (World Bank). This means that this website will not work on certain browsers
+				unless the developer mode is turned on. This is not a risk to user but it is a safe caution done by
+				modern browsers to prevent any unwanted site from having securty issues.
+				
+				Please install the following plugin on Chrome to run the site perfectly. The plugin only turns on/off
+				developer mode on Chrome so the site can access API from 3rd party domain (World Bank website).</p>
+				<div class="modal-footer">
+					<a href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en-US)" class="btn btn-primary">Download Plugin</a>
+				</div>
+			</div>
+
       </div>
 
     </div>
 	<!-- Background changer -->
 	<script>
-	
-	
-	
+
+
 	// Pick a random number and set a background image.
 	var Random_BG = Math.floor((Math.random() * 6) + 1);
 	// Change the CSS of the BG image.
