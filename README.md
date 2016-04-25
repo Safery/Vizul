@@ -16,6 +16,8 @@ Please note that the left side bar after searching for data has been taken out. 
 * Added country names to the left side bar
 * Fixed CSS for certain monitor sizes
 
+## Current Known Issues
+* After users requested graph, pressing the back button makes previous contents dissapear. But requesting a new graph makes nothing appear except the flag on side. The flag is only removed from its original position and shifted to the right.
 
 
 ---
