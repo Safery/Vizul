@@ -1,9 +1,6 @@
-# Vizul
-Vizul is a World Bank data visualizer using Javascript only.
-
 Vizul - World Bank Data Graph
 ============
- [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](http://safery.github.io/Vizul/) " 
+ [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](http://safery.github.io/Vizul/)
 
 Vizul is a pure Javascript based application that gets data from World Bank and visualizes those data into a graph.
 
