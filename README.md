@@ -15,6 +15,9 @@ Please note that the left side bar after searching for data has been taken out. 
 * Added live estimated population graph.
 * Added country names to the left side bar
 * Fixed CSS for certain monitor sizes
+
+
+
 ---
 
 ## Features
