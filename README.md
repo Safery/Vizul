@@ -12,12 +12,13 @@ Vizul is a pure Javascript based application that gets data from World Bank and 
 Please note that the left side bar after searching for data has been taken out. To prevent no web scraping, The next update should implement an API based information for the country. It currently on display the selected country flag. If no flag is displayed, either this data was not World Bank, or there were no data available for this country.
 
 ## Recent Changes
-* Added live estimated population graph.
-* Added country names to the left side bar
-* Fixed CSS for certain monitor sizes
+* Made all text color black
+* Fixed the CSS issue where it spawns the flag outside the left border
+* Fixed JS where it deletes the whole div elements when user presses the back button
+* Fixed the "live population data". Made it much more slower.
 
 ## Current Known Issues
-* After users requested graph, pressing the back button makes previous contents dissapear. But requesting a new graph makes nothing appear except the flag on side. The flag is only removed from its original position and shifted to the right.
+* Some data don't plot on the graph.
 
 
 ---
