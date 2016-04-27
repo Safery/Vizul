@@ -122,7 +122,7 @@ chart.render();
 // Start of Country rendering information box on left.
 
 var img = new Image();
-var div = document.getElementById('left_content');
+var div = document.getElementById('country_flag');
 
 img.onload = function() {
   div.appendChild(img);
@@ -137,7 +137,9 @@ function GoBack(){
 	//reset homepage
 	document.getElementById("main_first").style.display="block";
 	document.getElementById("main_graph").style.display="none";
-	$('#left_content').empty(); // Removes everything that was previously create.
+	$('#country_flag').empty(); // Removes everything that was previously create.
+	$('#title_ltf').empty(); // Removes everything that was previously create.
+	$('#update_chart').empty(); // Removes everything that was previously create.
 }
 
 function SideBarCompute(CountryCode){
@@ -177,12 +179,12 @@ function SideBarCompute(CountryCode){
 			// count is number of times loop runs to generate random dataPoints.
 			
 			for (var j = 0; j < count; j++) {	
-				yVal = yVal +  0.002;
+				yVal = yVal +  Math.random() * 0.003 + 0.002;
 				dps.push({
 					x: xVal,
 					y: yVal
 				});
-				xVal = xVal + 0.0002;
+				xVal = xVal + Math.random() * 0.003 + 0.002;
 			};
 			if (dps.length > dataLength)
 			{
