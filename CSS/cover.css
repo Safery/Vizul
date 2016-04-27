@@ -196,7 +196,7 @@ body {
 
 #flaging{
 	margin-top: 8px;
-	margin-right: -80px;
+	margin-right: 0px;
 	float: right;
 }
 
@@ -211,4 +211,6 @@ body {
 
 #title_ltf{
 	float: right;
+	margin-right: -100px;
+	color: black;
 }
